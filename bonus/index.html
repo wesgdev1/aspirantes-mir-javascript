@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Palindromo</title>
+  </head>
+  <body>
+    <label for="texto">Escribe algo:</label>
+    <input type="text" id="texto">
+    <button class="btn">Validar</button>
+    <p id="resultado"></p>
+
+
+
+    <script>
+        // Your code here.
+
+        const input = document.querySelector('#texto');
+        const resultado = document.querySelector('#resultado');
+        const boton=document.querySelector('.btn');
+
+
+
+
+        boton.addEventListener('click', function() {
+            const texto = input.value.toLowerCase().replace(/\s+/g, '');  //elimino los espacios de la palabra o frase
+            const invertido=texto.split("").reverse().join(""); //lo separo y lo invierto y lo vuelvo a unir en una cadena
+            
+            if (texto===invertido){
+
+                resultado.textContent="ES PALINDROMO";
+
+            }else{
+
+                resultado.textContent="NO ES PALINDROMO";
+
+            }
+            // reviso como estan ambas cadenas
+            //console.log(texto);
+            //console.log(invertido);
+            
+            
+        // Código para convertir el texto a mayúsculas y mostrarlo en el párrafo
+        });
+
+    </script>
+
+
+  </body>
+</html>
