@@ -3,7 +3,39 @@ html {
     font-size: 20px;
   }
 
+  .container{
+    width: 500px;
+    padding: 20px;
+    border-radius: 25px 25px 25px 25px;
+    margin: 100px auto;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(#bd09b7, #6b4cf5);
+    box-shadow: 7px 7px 15px #592A08; 
+}
 
-  ul {
+.task{
+  
+  padding: 7px;
+  width: 80%;
+}
+
+button {
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+}
+
+
+ul {
     list-style: none;
     }
+
+.is-completed{
+    text-decoration: line-through;
+    color: blue;
+    }
+
+
