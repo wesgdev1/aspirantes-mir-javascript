@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Local Storage</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">Ingresa tu nombre</label>
+      <input type="text" id="name" name="name" placeholder="Ingresa tu nombre">
+      <label for="email">Ingresa tu Email</label>
+      <input type="text" id="email" name="email" placeholder="Ingresa tu email">
+      <button type="submit">Guardar</button>
+    </form>
+    <section>
+
+        <button type="button" class="delete">Eliminar</button>
+
+    </section>
+
+
+
+    <script >
+
+      // Obtener elementos del DOM
+      const form = document.querySelector('form');
+      const input = document.querySelector('#name');
+      const section = document.querySelector('section');
+      const delBoton=document.querySelector('.delete');
+      const inputLastname=document.querySelector('#email');
+
+
+    
+
+      // Manejar el evento de enviar el formulario
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let objeto={nombre:input.value,email:inputLastname.value};
+        localStorage.setItem("datos",JSON.stringify(objeto));
+        location. reload(); //recargo la pagina para que muestre el localstorage
+
+      });
+
+      // Función para mostrar el nombre guardado en localStorage
+      function showName() {
+
+
+        if(localStorage.getItem("datos")){
+
+
+            let obj=JSON.parse(localStorage.getItem('datos'));
+            const p= document.createElement('p');
+            p.textContent="Nombre:"+obj.nombre+" " +"Correo: "+obj.email;
+            section.appendChild(p);
+            console.log("esta pintando en el if");
+
+
+        }else{
+
+            let mensaje= document.createElement('p');
+            mensaje.textContent="NO HAY ELEMENTOS";
+            section.appendChild(mensaje);
+
+        }
+
+        
+      }
+
+
+
+      // Función para borrar el nombre guardado en localStorage
+      function deleteName() {
+
+      }
+
+ // Función para borrar el nombre guardado en localStorage
+      delBoton.addEventListener('click', (event) => {
+        
+        localStorage.removeItem("datos"); 
+        location. reload();
+
+      });
+
+      // Mostrar el nombre guardado al cargar la página
+      showName();
+    </script>
+  </body>
+</html>
