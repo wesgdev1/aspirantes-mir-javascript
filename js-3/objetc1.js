@@ -33,3 +33,9 @@ for (let llave in pedro) {
 pedro.saluda(); // 7. LLama a funcion saluda.
 
 
+
+
+
+
+
+

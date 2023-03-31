@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="contenedor">
+
+
+    </ul>
+    
+
+
+
+<script>
+
+const menu = [
+  {
+    name: 'Home1',
+    link: '/',
+    items: []
+  },
+  {
+    name: 'About',
+    link: '/about',
+    items: []
+  },
+  {
+    name: 'Products',
+    link: '/products',
+    items: [
+      {
+        name: 'Product 1',
+        link: '/products/1',
+        items: []
+      },
+      {
+        name: 'Product 2',
+        link: '/products/2',
+        items: [
+          {
+            name: 'Product 2.1',
+            link: '/products/2/1',
+            items: []
+          },
+        ]
+      },
+    ]
+  },
+  {
+    name: 'Services',
+    link: '/services',
+    items: [
+      {
+        name: 'Service 1',
+        link: '/services/1',
+        items: [
+          {
+            name: 'Service 1.1',
+            link: '/services/1/1',
+            items: []
+          },
+        ]
+      },
+      {
+        name: 'Service 2',
+        link: '/services/2',
+        items: [
+          {
+            name: 'Service 2.1',
+            link: '/services/2/1',
+            items: []
+          },
+          {
+            name: 'Service 2.2',
+            link: '/services/2/2',
+            items: []
+          },
+        ]
+      },
+    ]
+  },
+]
+
+
+
+
+const ul = document.querySelector('.contenedor');
+
+function showList(){
+
+    for(let i=0; menu.length;i++){
+    const li= document.createElement('li');
+    const bot= document.createElement('button');
+    bot.textContent="+";
+    li.textContent=(menu[i].name);
+    ul.appendChild(li);
+
+        
+    if(menu[i].items.length>0){
+
+      li.appendChild(bot);
+
+
+        for(let j=0;j<menu[i].items.length;j++){
+                
+                
+                const ul2= document.createElement('ul');
+                const li2= document.createElement('li');
+                
+                li2.textContent=menu[i].items[j].name;
+                li.appendChild(ul2);
+                ul2.appendChild(li2);
+
+                if(menu[i].items[j].items.length>0){
+
+
+                    for(let x=0;x<menu[i].items[j].items.length;x++){
+
+                        const ul3= document.createElement('ul');
+                        const li3= document.createElement('li');
+                        li3.textContent=menu[i].items[j].items[x].name;
+                        li2.appendChild(ul3);
+                        ul3.appendChild(li3);
+
+
+
+
+
+
+                    }
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+    }
+
+
+
+        }
+
+
+
+}
+
+showList();
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
